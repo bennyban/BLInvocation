@@ -18,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    /*
+     前景：  iOS中有一个类型是SEL，它的作用很相似与函数指针，
+     方法一：通过performSelector:withObject:函数可以直接调用这个消息。但是perform相关的这些函数，有一个局限性，其参数数量不能超过2个，否则要做很麻烦的处理，与之相对
+     方法二：NSInvocation也是一种消息调用的方法，并且它的参数没有限制。
+     */
+    
     [self invocationPartOne];
     //    [self invocationPartTwo];
     //    [self invocationPartThree];
@@ -46,6 +53,10 @@
     [invocation setSelector:myMethod];
     
     [invocation invoke];
+    
+    /*
+    [self performSelector:@selector(doToLog) withObject:nil];
+     */
 }
 
 - (void)doToLog
